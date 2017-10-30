@@ -2,6 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
 import { LayerGroup } from 'react-leaflet';
+import CircularJSON from 'circular-json';
 import L from 'leaflet';
 
 require('leaflet.markercluster');
@@ -16,7 +17,7 @@ function havingDeprecatedProps(markers) {
 
 // NOTE: Helpers
 function isArraysEqual(firstArray, secondArray) {
-  return (JSON.stringify(firstArray) === JSON.stringify(secondArray));
+  return (CircularJSON.stringify(firstArray) === CircularJSON.stringify(secondArray));
 }
 
 function removeMarkersWithSameCoordinates(markers) {

@@ -16,6 +16,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactLeaflet = require('react-leaflet');
 
+var _circularJson = require('circular-json');
+
+var _circularJson2 = _interopRequireDefault(_circularJson);
+
 var _leaflet = require('leaflet');
 
 var _leaflet2 = _interopRequireDefault(_leaflet);
@@ -31,7 +35,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 require('leaflet.markercluster');
 
 // TEMP: remove from v1.2.0 because of deprecated wrapperOptions prop
-require('./deprecated-styles.css');
+require('./deprecated-styles.scss');
 
 // TEMP: remove deprecation warning at v1.2.0
 function havingDeprecatedProps(markers) {
@@ -42,7 +46,7 @@ function havingDeprecatedProps(markers) {
 
 // NOTE: Helpers
 function isArraysEqual(firstArray, secondArray) {
-  return JSON.stringify(firstArray) === JSON.stringify(secondArray);
+  return _circularJson2.default.stringify(firstArray) === _circularJson2.default.stringify(secondArray);
 }
 
 function removeMarkersWithSameCoordinates(markers) {
